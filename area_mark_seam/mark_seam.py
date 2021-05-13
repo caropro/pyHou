@@ -6,7 +6,7 @@ geo = node.geometry()
 
 # Add code to modify contents of geo.
 # Use drop down menu to select examples.
-input_node = node.inputConnections()[1].inputNode();
+input_node = node.inputConnections()[1].inputNode()
 
 geo2 = input_node.geometry()
 # 设置数据字典，键为area类型，对为tile位置标号
@@ -38,8 +38,12 @@ for i in range(area_count):
         tile_dict[tile] = area_name
 
 
-#公用数据处理，生成器
 def gen_targettiles(tile):
+    """
+    公用数据处理，生成器
+    :param tile:
+    :return:
+    """
     tile_x, tile_y = tile.split(",")
     for x in [-1, 0, 1]:
         for y in [-1, 0, 1]:
