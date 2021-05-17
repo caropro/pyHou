@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shelfDocument>
+  <!-- This file contains definitions of shelves, toolbars, and tools.
+ It should not be hand-edited when it is being used by the application.
+ Note, that two definitions of the same element are not allowed in
+ a single file. -->
+
+  <toolshelf name="pipeline" label="pipeline">
+    <memberTool name="Recurve"/>
+    <memberTool name="menu_convert"/>
+    <memberTool name="LayerClamp"/>
+    <memberTool name="curveEdit"/>
+    <memberTool name="waterinit"/>
+    <memberTool name="RemoteCoding"/>
+    <memberTool name="BigWorldCache"/>
+  </toolshelf>
+
+  <tool name="Recurve" label="Recurve" icon="hicon:/SVGIcons.index?NETVIEW_quickmark_back.svg">
+    <script scriptType="python"><![CDATA[from pipeline import reverse_curve as rc
+reload(rc)
+rc.convert()]]></script>
+  </tool>
+
+  <tool name="menu_convert" label="menu_convert" icon="PLASMA_App">
+    <script scriptType="python"><![CDATA[from pipeline import menuUpdate as mu
+reload(mu)
+mu.run()]]></script>
+  </tool>
+
+  <tool name="LayerClamp" label="LayerClamp" icon="hicon:/SVGIcons.index?BUTTONS_adapt_v.svg">
+    <script scriptType="python"><![CDATA[from pipeline import layerclamp as lc
+reload(lc)
+lc.run()]]></script>
+  </tool>
+
+  <tool name="curveEdit" label="curveEdit" icon="hicon:/SVGIcons.index?BUTTONS_create_parm_from_ch.svg">
+    <script scriptType="python"><![CDATA[from pipeline import CurveEdit as ce
+reload(ce)
+ce.run()]]></script>
+  </tool>
+</shelfDocument>
