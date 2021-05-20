@@ -3,6 +3,8 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/RefCode" />
+      <excludeFolder url="file://$MODULE_DIR$/learning_py" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.7 (pyHou)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
