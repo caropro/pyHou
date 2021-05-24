@@ -5,6 +5,7 @@ import os
 import stat
 from collections import OrderedDict
 
+#parm dict
 language_dict = {"width": r"宽度", "depth": r"深度", "width_ramp": r"宽度曲线", "depth_ramp": r"深度曲线",
                  "horizontal_section": r"横切面",
                  "water_sink": r"水面下沉", "reduce_seg": r"河面缩小段数", "river_seg": r"河分段数"}
