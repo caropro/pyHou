@@ -21,7 +21,6 @@ def saveCurve(*args, **kwargs):
         hou.ui.displayMessage("Save!!")
         return
 
-
 def loadCurve(*args, **kwargs):
     node = hou.pwd()
     node_path = node.type().definition().libraryFilePath()
@@ -30,5 +29,3 @@ def loadCurve(*args, **kwargs):
     # load data
     pf.loadCurvesData(data_folder, node)
     print("Loaded!")
-
-
