@@ -60,7 +60,7 @@ for shd in shaders:
 
         #get fbx shader
         fbx_shader = shd.glob("* ^suboutput")[0]
-        print fbx_shader
+        print(fbx_shader)
         # get the texture info
         texture = fbx_shader.evalParm("map1")
         if texture:

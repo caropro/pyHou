@@ -37,8 +37,8 @@ def Save():
         else:
             curve_data["DP"] = None
 
-        print curve_data
-        print "___________________________"
+
+        print("___________________________")
         curve_path = os.path.join(data_path,"%s.json"%curve.name())
         if (os.path.exists(curve_path)):
             os.remove(curve_path)

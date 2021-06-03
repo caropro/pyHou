@@ -91,7 +91,7 @@ def loadCurve(*args, **kwargs):
             parm_dic = json.loads(all_info, object_pairs_hook=OrderedDict)
 
         pt_count = len(parm_dic["coords"].get("value").split(" "))
-        print pt_count
+        print(pt_count)
         current_tmpparm = target_node.parmTemplateGroup()
         # iteration the k,v in dict_data
         for k, v in parm_dic.items():
