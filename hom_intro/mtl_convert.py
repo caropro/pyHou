@@ -1,6 +1,5 @@
 # coding = utf-8
 import hou
-import os
 
 # target_node = hou.ui.selectNode()
 # target mtl node
@@ -35,7 +34,7 @@ for shd in shaders:
 
         #get fbx shader
         fbx_shader = shd.glob("* ^suboutput")[0]
-        print fbx_shader
+        print( fbx_shader )
         # get the texture info
         texture = fbx_shader.evalParm("map1")
         if texture:

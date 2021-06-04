@@ -8,7 +8,7 @@ filelist = os.listdir(tar_dir)
 pre_boundx = 0
 if tar_dir:
     root_node = hou.node("/obj").createNode("geo", "Loader")
-    print tar_dir
+    print(tar_dir)
     m_node = root_node.createNode("merge")
     for file in filelist:
         print(file)
