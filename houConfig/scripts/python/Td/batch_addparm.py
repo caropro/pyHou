@@ -44,10 +44,10 @@ class AddParms(QtWidgets.QFrame):
                 parmSize = 1;
             parmType = "%sParmTemplate" % self.typelist.currentText()
             for node in hou.selectedNodes():
-                print node
-                print parmName
-                print parmSize
-                print parmType
+                print (node)
+                print (parmName)
+                print (parmSize)
+                print (parmType)
                 current_tmpparm = node.parmTemplateGroup()
                 current_tmpparm = self.add_TMP(parmName, parmSize,parmType, current_tmpparm)
                 node.setParmTemplateGroup(current_tmpparm)

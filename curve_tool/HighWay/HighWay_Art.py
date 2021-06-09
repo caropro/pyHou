@@ -1,4 +1,7 @@
-#coding = utf-8
+# coding=utf-8
+# Author:jonathon woo
+# email:live.wujianxuan@gmail.com
+# version:1.0.0
 import hou
 import os
 import sys
