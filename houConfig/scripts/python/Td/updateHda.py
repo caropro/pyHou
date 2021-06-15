@@ -4,10 +4,11 @@
 # version:1.0.0
 
 import hou
-#get hda nodes
+
+# get hda nodes
 hda_nodes = hou.selectedNodes()
 
-#get hda code
+# get hda code
 python_node = hou.node(hou.ui.selectNode())
 python_code = python_node.parm("python").eval()
 

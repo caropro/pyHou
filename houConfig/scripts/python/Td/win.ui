@@ -1,124 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>309</width>
-    <height>155</height>
-   </rect>
-  </property>
-  <property name="windowTitle">
-   <string>Form</string>
-  </property>
-  <layout class="QVBoxLayout" name="verticalLayout_2">
-   <property name="spacing">
-    <number>6</number>
-   </property>
-   <property name="leftMargin">
-    <number>0</number>
-   </property>
-   <property name="topMargin">
-    <number>0</number>
-   </property>
-   <property name="rightMargin">
-    <number>0</number>
-   </property>
-   <property name="bottomMargin">
-    <number>0</number>
-   </property>
-   <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_4">
-     <item>
-      <widget class="QLabel" name="label_3">
-       <property name="text">
-        <string>新HDA名称</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="new_hda_name_input"/>
-     </item>
-    </layout>
-   </item>
-   <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_3">
-     <item>
-      <widget class="QLabel" name="label_2">
-       <property name="text">
-        <string>新HDA保存路径</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="new_hda_path_input">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="new_browser_btn">
-       <property name="text">
-        <string>浏览</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>目标HDA</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="tar_hda_path_input">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="tar_broswer_btn">
-       <property name="text">
-        <string>浏览</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
-     <item>
-      <spacer name="horizontalSpacer">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QPushButton" name="convert_btn">
-       <property name="text">
-        <string>转换</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-  </layout>
- </widget>
- <resources/>
- <connections/>
+    <class>Form</class>
+    <widget class="QWidget" name="Form">
+        <property name="geometry">
+            <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>309</width>
+                <height>155</height>
+            </rect>
+        </property>
+        <property name="windowTitle">
+            <string>Form</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+            <property name="spacing">
+                <number>6</number>
+            </property>
+            <property name="leftMargin">
+                <number>0</number>
+            </property>
+            <property name="topMargin">
+                <number>0</number>
+            </property>
+            <property name="rightMargin">
+                <number>0</number>
+            </property>
+            <property name="bottomMargin">
+                <number>0</number>
+            </property>
+            <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_4">
+                    <item>
+                        <widget class="QLabel" name="label_3">
+                            <property name="text">
+                                <string>新HDA名称</string>
+                            </property>
+                        </widget>
+                    </item>
+                    <item>
+                        <widget class="QLineEdit" name="new_hda_name_input"/>
+                    </item>
+                </layout>
+            </item>
+            <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_3">
+                    <item>
+                        <widget class="QLabel" name="label_2">
+                            <property name="text">
+                                <string>新HDA保存路径</string>
+                            </property>
+                        </widget>
+                    </item>
+                    <item>
+                        <widget class="QLineEdit" name="new_hda_path_input">
+                            <property name="enabled">
+                                <bool>false</bool>
+                            </property>
+                        </widget>
+                    </item>
+                    <item>
+                        <widget class="QPushButton" name="new_browser_btn">
+                            <property name="text">
+                                <string>浏览</string>
+                            </property>
+                        </widget>
+                    </item>
+                </layout>
+            </item>
+            <item>
+                <layout class="QHBoxLayout" name="horizontalLayout">
+                    <item>
+                        <widget class="QLabel" name="label">
+                            <property name="text">
+                                <string>目标HDA</string>
+                            </property>
+                        </widget>
+                    </item>
+                    <item>
+                        <widget class="QLineEdit" name="tar_hda_path_input">
+                            <property name="enabled">
+                                <bool>false</bool>
+                            </property>
+                        </widget>
+                    </item>
+                    <item>
+                        <widget class="QPushButton" name="tar_broswer_btn">
+                            <property name="text">
+                                <string>浏览</string>
+                            </property>
+                        </widget>
+                    </item>
+                </layout>
+            </item>
+            <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_2">
+                    <item>
+                        <spacer name="horizontalSpacer">
+                            <property name="orientation">
+                                <enum>Qt::Horizontal</enum>
+                            </property>
+                            <property name="sizeHint" stdset="0">
+                                <size>
+                                    <width>40</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                    </item>
+                    <item>
+                        <widget class="QPushButton" name="convert_btn">
+                            <property name="text">
+                                <string>转换</string>
+                            </property>
+                        </widget>
+                    </item>
+                </layout>
+            </item>
+        </layout>
+    </widget>
+    <resources/>
+    <connections/>
 </ui>

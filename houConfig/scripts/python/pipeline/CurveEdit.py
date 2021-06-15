@@ -108,7 +108,6 @@ class editCurve(QtWidgets.QWidget):
                 if z_val:
                     self.pos_table.setItem(point, 2, QtWidgets.QTableWidgetItem(str(z_val)))
 
-
     def saveData(self):
         coords = ""
         rows = [x for x in range(self.pos_table.rowCount())][::-1]

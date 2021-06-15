@@ -3,17 +3,18 @@
 # email:live.wujianxuan@gmail.com
 # version:1.0.0
 
-#file节点加载文件夹内的所有文件，逐个10个单位位置偏移
+# file节点加载文件夹内的所有文件，逐个10个单位位置偏移
 import hou
 import os
-#read file dir
+
+# read file dir
 tar_dir = hou.ui.selectFile(title="Select obj File Folder", file_type=hou.fileType.Directory)
 tar_dir = tar_dir.replace("\\", "/")
 filelist = os.listdir(tar_dir)
 pre_boundx = 0
 if tar_dir:
     root_node = hou.node("/obj").createNode("geo", "Loader")
-
+    filename = None
     m_node = root_node.createNode("merge")
     for file in filelist:
         filename = os.path.splitext(file)[0]
