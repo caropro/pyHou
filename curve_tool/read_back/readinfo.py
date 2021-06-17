@@ -1,6 +1,7 @@
 #coding = utf-8
 import hou
-import logger
+import log
+
 current_node = hou.pwd()
 geo = current_node.geometry()
 curve_data = current_node.parent()
