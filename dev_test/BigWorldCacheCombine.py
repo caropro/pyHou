@@ -17,7 +17,6 @@ def Update():
         ReadNode = CurrentNode.createNode("file", data_name)
         ReadNode.parm("file").set(data_path)
         merge_node.setInput(len(merge_node.inputs()), ReadNode, 0)
-        print data
 
     # heightfield_tilesplice1 Tile
     Seam_node = CurrentNode.createNode("volumesplice", "splice")
