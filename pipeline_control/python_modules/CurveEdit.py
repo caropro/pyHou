@@ -3,7 +3,7 @@ import hou
 from PySide2 import QtWidgets, QtGui, QtCore
 from functools import partial
 
-
+#UI Setting
 class editCurve(QtWidgets.QWidget):
     def __init__(self):
         super(editCurve, self).__init__()

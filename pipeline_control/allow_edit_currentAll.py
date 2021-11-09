@@ -1,4 +1,5 @@
 #coding = utf-8
+
 import hou
 def unlockChildren(node):
     for child_node in node.children():
