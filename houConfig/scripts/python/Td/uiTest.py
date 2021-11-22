@@ -4,6 +4,7 @@
 # version:1.0.0
 
 import sys
+import hou
 from PySide2 import QtGui, QtWidgets, QtCore
 
 
