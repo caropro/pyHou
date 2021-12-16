@@ -3,6 +3,8 @@
 # email:live.wujianxuan@gmail.com
 # version:1.0.0
 
+import Timer
+print(Timer)
 
 def genTest():
     for i in range(100):

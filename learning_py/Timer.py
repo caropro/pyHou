@@ -2,10 +2,9 @@
 import time
 itertimes = 1000
 
-def timer(func,iter = 1000 ,*args,**kwargs):
+def timer(func,*args,**kwargs):
     start_time = time.clock()
-    for i in range(iter):
-        func(*args,**kwargs)
+    func(*args,**kwargs)
     timecosume = time.clock() - start_time
     return timecosume
 
