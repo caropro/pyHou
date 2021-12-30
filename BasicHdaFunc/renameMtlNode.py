@@ -11,6 +11,12 @@ ui = connection.modules.hou.ui
 selectedNode = hou.selectedNodes()[0]
 root = selectedNode.parent()
 
+NameList=[]
+index = 0
 for node in root.children():
     if node.type().name() == "material":
-        print(node)
+        mtl_name = node.parm("shop_materialpath1").eval().split("/")[-1]
+        print(mtl_name)
+        index = NameList.count(mtl_name)
+        node.setName("%s_%s"%(mtl_name,index))
+        NameList.append(mtl_name)
