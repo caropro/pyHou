@@ -5,8 +5,8 @@ import shutil
 import time
 import json
 
-otl_root = r"C:\Users\Administrator\Documents\houdini17.0\otls"
-version_root = r"C:\Users\Administrator\Documents\houdini17.0\otls\temp_version"
+otl_root = r"C:\Users\Administrator\Documents\houdini18.5\otls"
+version_root = r"C:\Users\Administrator\Documents\houdini18.5\otls\temp_version"
 file_dic = {}
 
 def version_dic(version_root):
