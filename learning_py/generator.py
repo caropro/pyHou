@@ -2,15 +2,28 @@
 # Author:jonathon woo
 # email:live.wujianxuan@gmail.com
 # version:1.0.0
+import measureTime
 
-import Timer
-print(Timer)
-
+@measureTime.timer
 def genTest():
-    for i in range(100):
-        yield i
+    l = []
+    for i in range(1000000):
+        l.append(i)
+    return l
 
-gen = genTest()
+genTest()
 
-for i in gen:
-    print(i)
+import string
+def getAllPairs():
+    all_letters = string.ascii_letters
+    result = [{x:all_letters.find(x)} for x in all_letters]
+    return result
+
+print(getAllPairs())
+
+
+class iterTest(object):
+    def __iter__(self):
+        return self
+    def __next__(self):
+        return 0

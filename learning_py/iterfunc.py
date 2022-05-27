@@ -18,7 +18,7 @@ def cal_numlist(L):
 #
 # print(cal_numlist.__code__.co_varnames)
 
-print filter((lambda x:x>5),[2,3,4,5,1,6,7,0])
+print(filter((lambda x:x>5),[2,3,4,5,1,6,7,0]))
 
 
 

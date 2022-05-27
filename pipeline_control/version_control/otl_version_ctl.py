@@ -4,6 +4,7 @@ import sys
 import shutil
 import time
 import json
+import logging
 
 otl_root = r"C:\Users\Administrator\Documents\houdini18.5\otls"
 version_root = r"C:\Users\Administrator\Documents\houdini18.5\otls\temp_version"
@@ -24,15 +25,15 @@ def version_dic(version_root):
             file_version = os.path.splitext(version_file)[0].split("_v")[1]
         except:
             file_version = 1
-        print(version_shortfilename)
-        print(file_version)
-        print(file_mtime)
-        print(file_dic.get(version_shortfilename),int(file_version))
+        # print(version_shortfilename)
+        # print(file_version)
+        # print(file_mtime)
+        # print(file_dic.get(version_shortfilename),int(file_version))
         if not file_dic.get(version_shortfilename) or file_dic.get(version_shortfilename).get("version")<int(file_version):
             file_dic[version_shortfilename]={}
             file_dic[version_shortfilename]["version"] = int(file_version)
             file_dic[version_shortfilename]["mtime"] = file_mtime
-    print file_dic
+    # print(file_dic)
     return file_dic
 
 def check_NoVersionFiles(noversion_path,version_dic,tar_dir):
@@ -42,7 +43,7 @@ def check_NoVersionFiles(noversion_path,version_dic,tar_dir):
         nv_file_full_path = os.path.join(noversion_path,no_version_file)
         if os.path.isdir(nv_file_full_path):
             continue
-        print(nv_file_full_path)
+        logging.info(nv_file_full_path)
         file_mtime = os.path.getmtime(nv_file_full_path)
         print(time.ctime(file_mtime))
         no_version_filename =os.path.splitext(no_version_file)[0]

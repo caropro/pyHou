@@ -3,8 +3,6 @@
 # email:live.wujianxuan@gmail.com
 # version:1.0.0
 
-
-
 def dec(func):
     # first layer import func as var
     print("Dec Running")
@@ -27,13 +25,11 @@ def dec_2(func,*args,**kwargs):
     return wrap
 
 
-
 #装饰器，会吧被装饰的function作为参数传进装饰器函数中
 #所以装饰器，在完成自己的执行任务的同时，需要返回被装饰的函数
 @dec_2
 def testFunc(test_var):
     print("Running Test Function")
     #print(test_var)
-
 
 testFunc(9999)

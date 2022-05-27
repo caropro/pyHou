@@ -9,4 +9,4 @@ class Spam(ListInstance):
 
 x = Spam()
 print (x)
-print x.__dict__
+print (x.__dict__)

@@ -13,7 +13,7 @@ def func_a(x):
     a =100
     def func_b(c=x):
         z = a+c
-        print z
+        print(z)
     return func_b
 
 # test = func_a(111)

@@ -11,13 +11,13 @@ class Ca():
     def print_test():
         print("Test Print")
     def print_test2(self):
-        print self.value
+        print(self.value)
     @classmethod
     def print_test3(cls):
-        print cls.va
+        print(cls.va)
 
 glob()
-print a
+print(a)
 
 Ca.print_test()
 

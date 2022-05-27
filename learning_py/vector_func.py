@@ -5,10 +5,19 @@
 
 
 class vector3(object):
-    def __init__(self,x,y,z):
-        self.x = x
-        self.y = y
-        self.z = z
+    def __init__(self,*args):
+        if isinstance(args[0],list):
+            self.x = args[0][0]
+            self.y = args[0][1]
+            self.z = args[0][2]
+        elif isinstance(args[0],vector3):
+            self.x = args[0].x
+            self.y = args[1].y
+            self.z = args[2].z
+        else:
+            self.x = args[0]
+            self.y = args[1]
+            self.z = args[2]
 
     def __str__(self):
         return "Value of Vector is {0},{1},{2}".format(self.x,self.y,self.z)
@@ -42,8 +51,10 @@ class vector3(object):
             print(self.x)
         elif item ==1 :
             print(self.y)
-        else:
+        elif item == 2:
             print(self.z)
+        else:
+            raise IndexError("Index does not exist for current vector3 .")
 
     def __setitem__(self, key, value):
         if key == 0:
