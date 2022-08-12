@@ -9,8 +9,11 @@ import os
 connection,hou = hrpyc.import_remote_module()
 ui = connection.modules.hou.ui
 
-hda_path = r"C:\Users\jianx\Documents\houdini19.0\HouLand\OperatorHDAs\Utilities"
+hda_path = r"C:\Users\jianx\Documents\houdini19.0\HouLand\LandscapeHDAs"
 targetNode = hou.node("/obj/geo1")
+if not (targetNode):
+    hou.node("/obj").createNode("geo")
+
 
 #get hda name list
 hdas = [f.split(".")[0] for f in os.listdir(hda_path) if f.endswith(".hda")]

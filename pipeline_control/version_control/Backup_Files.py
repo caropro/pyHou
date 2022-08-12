@@ -9,8 +9,8 @@ import shutil
 userFolder = os.path.expanduser("~")
 
 #version pending transfer
-old_version = "houdini18.5"
-new_version = "houdini19.0"
+old_version = "houdini19.0"
+new_version = "houdini19.5"
 
 #combine path
 old_path = os.path.join(userFolder,old_version)

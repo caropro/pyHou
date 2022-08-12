@@ -27,7 +27,7 @@ def add_TMP(attr_name, tmp_type, current_tmpparm,language_dict=None):
 # create folder and reright the dir
 def createFolder(data_path):
     #if folder dose not exist create new one(root one)
-    print data_path
+    print(data_path )
     if not os.path.exists(data_path):
         os.mkdir(data_path)
         return
