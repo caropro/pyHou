@@ -18,7 +18,10 @@ class vector3(object):
             self.x = args[0]
             self.y = args[1]
             self.z = args[2]
-
+    @classmethod
+    def from_vec(cls,vector_data):
+        new_vector = cls(vector_data)
+        return new_vector
     def __str__(self):
         return "Value of Vector is {0},{1},{2}".format(self.x,self.y,self.z)
 

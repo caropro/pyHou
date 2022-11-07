@@ -9,6 +9,7 @@ class Ca():
         self.value = 222
     @staticmethod
     def print_test():
+        print(a)
         print("Test Print")
     def print_test2(self):
         print(self.value)

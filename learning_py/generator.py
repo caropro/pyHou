@@ -27,3 +27,6 @@ class iterTest(object):
         return self
     def __next__(self):
         return 0
+
+
+

@@ -1,5 +1,6 @@
 #coding = utf-8
 import time
+import sys
 itertimes = 1000
 
 def timer(func):
@@ -10,6 +11,7 @@ def timer(func):
         finally:
             runtime = time.time() - start_time
             print("time consume is : %f" % runtime)
+            print("Func: {}".format(func.__name__))
     return  wraped
 
 def bestRecord(func, *args, ** kwargs):
@@ -20,3 +22,10 @@ def bestRecord(func, *args, ** kwargs):
             best = timecosume
     return best
 
+@timer
+def calTest():
+    for i in range(1000000):
+        print(i)
+    return None
+#
+# calTest()

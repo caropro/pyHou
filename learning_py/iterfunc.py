@@ -18,7 +18,9 @@ def cal_numlist(L):
 #
 # print(cal_numlist.__code__.co_varnames)
 
-print(filter((lambda x:x>5),[2,3,4,5,1,6,7,0]))
+#返回的生成器，要想可用，转为列表
+a = filter((lambda x:x>5),[2,3,4,5,1,6,7,0])
+print(list(a))
 
 
 
