@@ -44,7 +44,7 @@ RoughReader = MtlSub.createNode("mtlximage","Roughness")
 RoughReader.setParms({"file":RoughTex})
 separate = MtlSub.createNode("mtlxseparate3c")
 separate.setInput(0,RoughReader)
-mtlxsurface.setInput(2,separate,0)
+mtlxsurface.setInput(6,separate,0)
 
 #Normal add mapConvert
 NormReader = MtlSub.createNode("mtlximage","Normal")
@@ -69,3 +69,6 @@ Dispseparate.setInput(0,dispReader)
 remap = MtlSub.createNode("mtlxremap")
 remap.setInput(0,Dispseparate,0)
 mtlxdisplacement.setInput(0,remap)
+
+MtlSub.layoutChildren()
+MtlSub.setMaterialFlag(1)
