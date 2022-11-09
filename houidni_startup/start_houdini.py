@@ -29,4 +29,4 @@ max_Version = max([x for x in os.listdir(houdini_install_dir) if "Houdini 1" in 
 
 houdini_exe = os.path.normpath(os.path.join(houdini_install_dir,max_Version,"bin","houdini.exe"))
 print(houdini_exe)
-susubprocess.Popen(houdini_exe)
+subprocess.Popen(houdini_exe)

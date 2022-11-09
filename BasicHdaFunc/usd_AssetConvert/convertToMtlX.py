@@ -69,6 +69,7 @@ Dispseparate.setInput(0,dispReader)
 remap = MtlSub.createNode("mtlxremap")
 remap.setInput(0,Dispseparate,0)
 mtlxdisplacement.setInput(0,remap)
+mtlxdisplacement.setParms({"scale":0.1})
 
 MtlSub.layoutChildren()
 MtlSub.setMaterialFlag(1)
