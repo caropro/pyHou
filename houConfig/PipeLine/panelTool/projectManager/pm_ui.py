@@ -19,8 +19,8 @@ class Ui_Form(object):
         self.verticalLayout.setObjectName("verticalLayout")
         self.ToolTitle = QtWidgets.QLabel(Form)
         self.ToolTitle.setStyleSheet("font: 20pt \"Microsoft YaHei UI\";\n"
+"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 0, 0, 255), stop:0.0340909 rgba(0, 0, 142, 255), stop:1 rgba(0, 146, 180, 255));\n"
 "color: rgb(255, 255, 255);\n"
-"background-color: rgb(85, 85, 255);\n"
 "\n"
 "border-width:5px;")
         self.ToolTitle.setTextFormat(QtCore.Qt.TextFormat.AutoText)
@@ -28,8 +28,10 @@ class Ui_Form(object):
         self.ToolTitle.setObjectName("ToolTitle")
         self.verticalLayout.addWidget(self.ToolTitle)
         self.ProjectName = QtWidgets.QLabel(Form)
-        self.ProjectName.setStyleSheet("font: 14pt \"Microsoft YaHei UI\";\n"
-"background-color: rgb(255, 170, 0);\n"
+        self.ProjectName.setStyleSheet("color: rgb(255, 255, 255);\n"
+"font: 14pt \"Microsoft YaHei UI\";\n"
+"color: rgb(255, 255, 255);\n"
+"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(221, 96, 0, 255), stop:1 rgba(72, 230, 230, 255));\n"
 "gridline-color: rgb(255, 170, 0);\n"
 "\n"
 "border-width:5px;\n"
@@ -44,6 +46,11 @@ class Ui_Form(object):
         self.ProjectPath.setObjectName("ProjectPath")
         self.verticalLayout.addWidget(self.ProjectPath)
         self.FileList = QtWidgets.QListWidget(Form)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(1)
+        sizePolicy.setHeightForWidth(self.FileList.sizePolicy().hasHeightForWidth())
+        self.FileList.setSizePolicy(sizePolicy)
         self.FileList.setStyleSheet("font: 14pt \"Microsoft YaHei UI\";\n"
 "background-color: rgb(94, 94, 94);\n"
 "alternate-background-color: rgb(0, 255, 255);\n"
@@ -54,7 +61,7 @@ class Ui_Form(object):
         item = QtWidgets.QListWidgetItem()
         self.FileList.addItem(item)
         self.verticalLayout.addWidget(self.FileList)
-        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        spacerItem = QtWidgets.QSpacerItem(20, 15, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
         self.verticalLayout.addItem(spacerItem)
         self.BtmLayout = QtWidgets.QHBoxLayout()
         self.BtmLayout.setObjectName("BtmLayout")
