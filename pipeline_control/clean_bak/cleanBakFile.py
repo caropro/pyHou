@@ -14,3 +14,4 @@ for dir_path,folders,filelist in filedata:
         bakFilePathList = [os.path.normpath(os.path.join(dir_path,bakfile)) for bakfile in bakList]
         for bakFilePath in bakFilePathList:
             os.remove(bakFilePath)
+
