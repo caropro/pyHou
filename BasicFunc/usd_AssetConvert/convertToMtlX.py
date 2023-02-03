@@ -11,6 +11,7 @@ ui = connection.modules.hou.ui
 # except:
 #     pass
 
+
 targetNode = hou.selectedNodes()[0]
 root = targetNode.parent()
 
