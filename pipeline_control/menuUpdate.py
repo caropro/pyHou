@@ -89,6 +89,5 @@ class AddParms(QtWidgets.QFrame):
         else:
             hou.ui.displayMessage("Select Source Nodes First")
             return
-
 def run():
     tool = AddParms()
