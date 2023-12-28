@@ -16,7 +16,7 @@ print("Hello PipeLine")
 
 
 
-from hutil.Qt import QtWidgets, QtCore, QtGui, QtUiTools
+from PySide2 import QtWidgets, QtCore, QtGui, QtUiTools
 
 current_path = os.path.dirname(__file__)
 sys.path.append(current_path)

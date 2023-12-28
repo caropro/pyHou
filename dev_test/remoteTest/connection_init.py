@@ -13,6 +13,3 @@ sys.modules["hou"] = hou
 
 print(help(cProfile))
 print(dir(cProfile))
-
-
-#itertools.combinations()
