@@ -13,6 +13,6 @@ hou.ui = ui
 sys.modules["hou"] = hou
 
 
-print dir(hou.ui.displayMessage)
+print( dir(hou.ui.displayMessage))
 
 hou.ui.displayMessage("yes")

@@ -1,0 +1,1592 @@
+[
+	{
+		"Name": "Building_CBD_L1_A",
+		"Asset": "/Script/Engine.StaticMesh'/Game/StaticMesh/Building_CBD_L1_A.Building_CBD_L1_A'",
+		"Area":
+		{
+			"Zyzh_Res": false,
+			"Zyzh_Commercial": false,
+			"Zyzh_CBD": true
+		},
+		"BuildingType":
+		{
+			"Res": false,
+			"CBD": true,
+			"Commercial": false
+		},
+		"BoundingSize":
+		{
+			"X": 4584.2495120000003,
+			"Y": 3358.0200199999999,
+			"Z": 6957.6186520000001
+		},
+		"ExtendSize":
+		{
+			"X": 15,
+			"Y": 15,
+			"Z": 15
+		},
+		"ExrendDir":
+		{
+			"Front": true,
+			"Back": true,
+			"Left": true,
+			"Right": true
+		},
+		"Zyzh":
+		{
+			"Res":
+			{
+				"percentage": 80,
+				"switch": true
+			},
+			"Commercial":
+			{
+				"percentage": 0,
+				"switch": false
+			},
+			"CBD":
+			{
+				"percentage": 80,
+				"switch": true
+			}
+		}
+	},
+	{
+		"Name": "Building_CBD_L1_B",
+		"Asset": "/Script/Engine.StaticMesh'/Game/StaticMesh/Building_CBD_L1_B.Building_CBD_L1_B'",
+		"Area":
+		{
+			"Zyzh_Res": false,
+			"Zyzh_Commercial": false,
+			"Zyzh_CBD": true
+		},
+		"BuildingType":
+		{
+			"Res": false,
+			"CBD": true,
+			"Commercial": false
+		},
+		"BoundingSize":
+		{
+			"X": 5135.3115230000003,
+			"Y": 3070.8508299999999,
+			"Z": 5157.8442379999997
+		},
+		"ExtendSize":
+		{
+			"X": 0,
+			"Y": 0,
+			"Z": 0
+		},
+		"ExrendDir":
+		{
+			"Front": false,
+			"Back": false,
+			"Left": false,
+			"Right": false
+		},
+		"Zyzh":
+		{
+			"Res":
+			{
+				"percentage": 80,
+				"switch": true
+			},
+			"Commercial":
+			{
+				"percentage": 0,
+				"switch": false
+			},
+			"CBD":
+			{
+				"percentage": 80,
+				"switch": true
+			}
+		}
+	},
+	{
+		"Name": "Building_CBD_L1_C",
+		"Asset": "/Script/Engine.StaticMesh'/Game/StaticMesh/Building_CBD_L1_C.Building_CBD_L1_C'",
+		"Area":
+		{
+			"Zyzh_Res": false,
+			"Zyzh_Commercial": false,
+			"Zyzh_CBD": true
+		},
+		"BuildingType":
+		{
+			"Res": false,
+			"CBD": true,
+			"Commercial": false
+		},
+		"BoundingSize":
+		{
+			"X": 2791.196289,
+			"Y": 5707.1445309999999,
+			"Z": 7471.6049800000001
+		},
+		"ExtendSize":
+		{
+			"X": 0,
+			"Y": 0,
+			"Z": 0
+		},
+		"ExrendDir":
+		{
+			"Front": false,
+			"Back": false,
+			"Left": false,
+			"Right": false
+		},
+		"Zyzh":
+		{
+			"Res":
+			{
+				"percentage": 80,
+				"switch": true
+			},
+			"Commercial":
+			{
+				"percentage": 0,
+				"switch": false
+			},
+			"CBD":
+			{
+				"percentage": 80,
+				"switch": true
+			}
+		}
+	},
+	{
+		"Name": "Building_CBD_L1_D",
+		"Asset": "/Script/Engine.StaticMesh'/Game/StaticMesh/Building_CBD_L1_D.Building_CBD_L1_D'",
+		"Area":
+		{
+			"Zyzh_Res": false,
+			"Zyzh_Commercial": false,
+			"Zyzh_CBD": true
+		},
+		"BuildingType":
+		{
+			"Res": false,
+			"CBD": true,
+			"Commercial": false
+		},
+		"BoundingSize":
+		{
+			"X": 1824.5009769999999,
+			"Y": 4625.0024409999996,
+			"Z": 7550.3666990000002
+		},
+		"ExtendSize":
+		{
+			"X": 0,
+			"Y": 0,
+			"Z": 0
+		},
+		"ExrendDir":
+		{
+			"Front": false,
+			"Back": false,
+			"Left": false,
+			"Right": false
+		},
+		"Zyzh":
+		{
+			"Res":
+			{
+				"percentage": 80,
+				"switch": true
+			},
+			"Commercial":
+			{
+				"percentage": 0,
+				"switch": false
+			},
+			"CBD":
+			{
+				"percentage": 80,
+				"switch": true
+			}
+		}
+	},
+	{
+		"Name": "Building_CBD_L2_A",
+		"Asset": "/Script/Engine.StaticMesh'/Game/StaticMesh/Building_CBD_L2_A.Building_CBD_L2_A'",
+		"Area":
+		{
+			"Zyzh_Res": false,
+			"Zyzh_Commercial": false,
+			"Zyzh_CBD": true
+		},
+		"BuildingType":
+		{
+			"Res": false,
+			"CBD": true,
+			"Commercial": false
+		},
+		"BoundingSize":
+		{
+			"X": 2975.7397460000002,
+			"Y": 4847.4736329999996,
+			"Z": 10628.851562
+		},
+		"ExtendSize":
+		{
+			"X": 0,
+			"Y": 0,
+			"Z": 0
+		},
+		"ExrendDir":
+		{
+			"Front": false,
+			"Back": false,
+			"Left": false,
+			"Right": false
+		},
+		"Zyzh":
+		{
+			"Res":
+			{
+				"percentage": 80,
+				"switch": true
+			},
+			"Commercial":
+			{
+				"percentage": 0,
+				"switch": false
+			},
+			"CBD":
+			{
+				"percentage": 15,
+				"switch": true
+			}
+		}
+	},
+	{
+		"Name": "Building_CBD_L2_B",
+		"Asset": "/Script/Engine.StaticMesh'/Game/StaticMesh/Building_CBD_L2_B.Building_CBD_L2_B'",
+		"Area":
+		{
+			"Zyzh_Res": false,
+			"Zyzh_Commercial": false,
+			"Zyzh_CBD": true
+		},
+		"BuildingType":
+		{
+			"Res": false,
+			"CBD": true,
+			"Commercial": false
+		},
+		"BoundingSize":
+		{
+			"X": 4277.9135740000002,
+			"Y": 2936.7573240000002,
+			"Z": 11642.827148
+		},
+		"ExtendSize":
+		{
+			"X": 0,
+			"Y": 0,
+			"Z": 0
+		},
+		"ExrendDir":
+		{
+			"Front": false,
+			"Back": false,
+			"Left": false,
+			"Right": false
+		},
+		"Zyzh":
+		{
+			"Res":
+			{
+				"percentage": 80,
+				"switch": true
+			},
+			"Commercial":
+			{
+				"percentage": 0,
+				"switch": false
+			},
+			"CBD":
+			{
+				"percentage": 15,
+				"switch": true
+			}
+		}
+	},
+	{
+		"Name": "Building_CBD_L3_A",
+		"Asset": "/Script/Engine.StaticMesh'/Game/StaticMesh/Building_CBD_L3_A.Building_CBD_L3_A'",
+		"Area":
+		{
+			"Zyzh_Res": false,
+			"Zyzh_Commercial": false,
+			"Zyzh_CBD": true
+		},
+		"BuildingType":
+		{
+			"Res": false,
+			"CBD": true,
+			"Commercial": false
+		},
+		"BoundingSize":
+		{
+			"X": 3442.5407709999999,
+			"Y": 5168.060547,
+			"Z": 13959.095703000001
+		},
+		"ExtendSize":
+		{
+			"X": 0,
+			"Y": 0,
+			"Z": 0
+		},
+		"ExrendDir":
+		{
+			"Front": false,
+			"Back": false,
+			"Left": false,
+			"Right": false
+		},
+		"Zyzh":
+		{
+			"Res":
+			{
+				"percentage": 80,
+				"switch": true
+			},
+			"Commercial":
+			{
+				"percentage": 0,
+				"switch": false
+			},
+			"CBD":
+			{
+				"percentage": 5,
+				"switch": true
+			}
+		}
+	},
+	{
+		"Name": "Building_commercial_L1_A",
+		"Asset": "/Script/Engine.StaticMesh'/Game/StaticMesh/Building_commercial_L1_A.Building_commercial_L1_A'",
+		"Area":
+		{
+			"Zyzh_Res": false,
+			"Zyzh_Commercial": true,
+			"Zyzh_CBD": false
+		},
+		"BuildingType":
+		{
+			"Res": false,
+			"CBD": false,
+			"Commercial": true
+		},
+		"BoundingSize":
+		{
+			"X": 2072.439453,
+			"Y": 3101.2211910000001,
+			"Z": 2270.4282229999999
+		},
+		"ExtendSize":
+		{
+			"X": 0,
+			"Y": 0,
+			"Z": 0
+		},
+		"ExrendDir":
+		{
+			"Front": false,
+			"Back": false,
+			"Left": false,
+			"Right": false
+		},
+		"Zyzh":
+		{
+			"Res":
+			{
+				"percentage": 80,
+				"switch": true
+			},
+			"Commercial":
+			{
+				"percentage": 80,
+				"switch": true
+			},
+			"CBD":
+			{
+				"percentage": 0,
+				"switch": false
+			}
+		}
+	},
+	{
+		"Name": "Building_commercial_L1_B",
+		"Asset": "/Script/Engine.StaticMesh'/Game/StaticMesh/Building_commercial_L1_B.Building_commercial_L1_B'",
+		"Area":
+		{
+			"Zyzh_Res": false,
+			"Zyzh_Commercial": true,
+			"Zyzh_CBD": false
+		},
+		"BuildingType":
+		{
+			"Res": false,
+			"CBD": false,
+			"Commercial": true
+		},
+		"BoundingSize":
+		{
+			"X": 2460.9384770000001,
+			"Y": 1696.614624,
+			"Z": 2217.7683109999998
+		},
+		"ExtendSize":
+		{
+			"X": 0,
+			"Y": 0,
+			"Z": 0
+		},
+		"ExrendDir":
+		{
+			"Front": false,
+			"Back": false,
+			"Left": false,
+			"Right": false
+		},
+		"Zyzh":
+		{
+			"Res":
+			{
+				"percentage": 80,
+				"switch": true
+			},
+			"Commercial":
+			{
+				"percentage": 80,
+				"switch": true
+			},
+			"CBD":
+			{
+				"percentage": 0,
+				"switch": false
+			}
+		}
+	},
+	{
+		"Name": "Building_commercial_L1_C",
+		"Asset": "/Script/Engine.StaticMesh'/Game/StaticMesh/Building_commercial_L1_C.Building_commercial_L1_C'",
+		"Area":
+		{
+			"Zyzh_Res": false,
+			"Zyzh_Commercial": true,
+			"Zyzh_CBD": false
+		},
+		"BuildingType":
+		{
+			"Res": false,
+			"CBD": false,
+			"Commercial": true
+		},
+		"BoundingSize":
+		{
+			"X": 1415.6547849999999,
+			"Y": 776.28942900000004,
+			"Z": 1774.7454829999999
+		},
+		"ExtendSize":
+		{
+			"X": 0,
+			"Y": 0,
+			"Z": 0
+		},
+		"ExrendDir":
+		{
+			"Front": false,
+			"Back": false,
+			"Left": false,
+			"Right": false
+		},
+		"Zyzh":
+		{
+			"Res":
+			{
+				"percentage": 80,
+				"switch": true
+			},
+			"Commercial":
+			{
+				"percentage": 80,
+				"switch": true
+			},
+			"CBD":
+			{
+				"percentage": 0,
+				"switch": false
+			}
+		}
+	},
+	{
+		"Name": "Building_commercial_L1_D",
+		"Asset": "/Script/Engine.StaticMesh'/Game/StaticMesh/Building_commercial_L1_D.Building_commercial_L1_D'",
+		"Area":
+		{
+			"Zyzh_Res": false,
+			"Zyzh_Commercial": true,
+			"Zyzh_CBD": false
+		},
+		"BuildingType":
+		{
+			"Res": false,
+			"CBD": false,
+			"Commercial": true
+		},
+		"BoundingSize":
+		{
+			"X": 2931.6079100000002,
+			"Y": 3856.7929690000001,
+			"Z": 2000.000366
+		},
+		"ExtendSize":
+		{
+			"X": 0,
+			"Y": 0,
+			"Z": 0
+		},
+		"ExrendDir":
+		{
+			"Front": false,
+			"Back": false,
+			"Left": false,
+			"Right": false
+		},
+		"Zyzh":
+		{
+			"Res":
+			{
+				"percentage": 80,
+				"switch": true
+			},
+			"Commercial":
+			{
+				"percentage": 80,
+				"switch": true
+			},
+			"CBD":
+			{
+				"percentage": 0,
+				"switch": false
+			}
+		}
+	},
+	{
+		"Name": "Building_commercial_L1_E",
+		"Asset": "/Script/Engine.StaticMesh'/Game/StaticMesh/Building_commercial_L1_E.Building_commercial_L1_E'",
+		"Area":
+		{
+			"Zyzh_Res": false,
+			"Zyzh_Commercial": true,
+			"Zyzh_CBD": false
+		},
+		"BuildingType":
+		{
+			"Res": false,
+			"CBD": false,
+			"Commercial": true
+		},
+		"BoundingSize":
+		{
+			"X": 2589.843018,
+			"Y": 2028.0413820000001,
+			"Z": 2145.0104980000001
+		},
+		"ExtendSize":
+		{
+			"X": 0,
+			"Y": 0,
+			"Z": 0
+		},
+		"ExrendDir":
+		{
+			"Front": false,
+			"Back": false,
+			"Left": false,
+			"Right": false
+		},
+		"Zyzh":
+		{
+			"Res":
+			{
+				"percentage": 80,
+				"switch": true
+			},
+			"Commercial":
+			{
+				"percentage": 80,
+				"switch": true
+			},
+			"CBD":
+			{
+				"percentage": 0,
+				"switch": false
+			}
+		}
+	},
+	{
+		"Name": "Building_commercial_L2_A",
+		"Asset": "/Script/Engine.StaticMesh'/Game/StaticMesh/Building_commercial_L2_A.Building_commercial_L2_A'",
+		"Area":
+		{
+			"Zyzh_Res": false,
+			"Zyzh_Commercial": true,
+			"Zyzh_CBD": false
+		},
+		"BuildingType":
+		{
+			"Res": false,
+			"CBD": false,
+			"Commercial": true
+		},
+		"BoundingSize":
+		{
+			"X": 1505.9197999999999,
+			"Y": 2928.9174800000001,
+			"Z": 3499.9997560000002
+		},
+		"ExtendSize":
+		{
+			"X": 0,
+			"Y": 0,
+			"Z": 0
+		},
+		"ExrendDir":
+		{
+			"Front": false,
+			"Back": false,
+			"Left": false,
+			"Right": false
+		},
+		"Zyzh":
+		{
+			"Res":
+			{
+				"percentage": 80,
+				"switch": true
+			},
+			"Commercial":
+			{
+				"percentage": 15,
+				"switch": true
+			},
+			"CBD":
+			{
+				"percentage": 0,
+				"switch": false
+			}
+		}
+	},
+	{
+		"Name": "Building_commercial_L2_B",
+		"Asset": "/Script/Engine.StaticMesh'/Game/StaticMesh/Building_commercial_L2_B.Building_commercial_L2_B'",
+		"Area":
+		{
+			"Zyzh_Res": false,
+			"Zyzh_Commercial": true,
+			"Zyzh_CBD": false
+		},
+		"BuildingType":
+		{
+			"Res": false,
+			"CBD": false,
+			"Commercial": true
+		},
+		"BoundingSize":
+		{
+			"X": 2804.743164,
+			"Y": 3111.7509770000001,
+			"Z": 2710.1430660000001
+		},
+		"ExtendSize":
+		{
+			"X": 0,
+			"Y": 0,
+			"Z": 0
+		},
+		"ExrendDir":
+		{
+			"Front": false,
+			"Back": false,
+			"Left": false,
+			"Right": false
+		},
+		"Zyzh":
+		{
+			"Res":
+			{
+				"percentage": 80,
+				"switch": true
+			},
+			"Commercial":
+			{
+				"percentage": 15,
+				"switch": true
+			},
+			"CBD":
+			{
+				"percentage": 0,
+				"switch": false
+			}
+		}
+	},
+	{
+		"Name": "Building_commercial_L2_C",
+		"Asset": "/Script/Engine.StaticMesh'/Game/StaticMesh/Building_commercial_L2_C.Building_commercial_L2_C'",
+		"Area":
+		{
+			"Zyzh_Res": false,
+			"Zyzh_Commercial": true,
+			"Zyzh_CBD": false
+		},
+		"BuildingType":
+		{
+			"Res": false,
+			"CBD": false,
+			"Commercial": true
+		},
+		"BoundingSize":
+		{
+			"X": 3107.9973140000002,
+			"Y": 2153.8046880000002,
+			"Z": 3148.338135
+		},
+		"ExtendSize":
+		{
+			"X": 0,
+			"Y": 0,
+			"Z": 0
+		},
+		"ExrendDir":
+		{
+			"Front": false,
+			"Back": false,
+			"Left": false,
+			"Right": false
+		},
+		"Zyzh":
+		{
+			"Res":
+			{
+				"percentage": 80,
+				"switch": true
+			},
+			"Commercial":
+			{
+				"percentage": 15,
+				"switch": true
+			},
+			"CBD":
+			{
+				"percentage": 0,
+				"switch": false
+			}
+		}
+	},
+	{
+		"Name": "Building_commercial_L2_D",
+		"Asset": "/Script/Engine.StaticMesh'/Game/StaticMesh/Building_commercial_L2_D.Building_commercial_L2_D'",
+		"Area":
+		{
+			"Zyzh_Res": false,
+			"Zyzh_Commercial": true,
+			"Zyzh_CBD": false
+		},
+		"BuildingType":
+		{
+			"Res": false,
+			"CBD": false,
+			"Commercial": true
+		},
+		"BoundingSize":
+		{
+			"X": 3389.4653320000002,
+			"Y": 3170.4526369999999,
+			"Z": 3324.9638669999999
+		},
+		"ExtendSize":
+		{
+			"X": 0,
+			"Y": 0,
+			"Z": 0
+		},
+		"ExrendDir":
+		{
+			"Front": false,
+			"Back": false,
+			"Left": false,
+			"Right": false
+		},
+		"Zyzh":
+		{
+			"Res":
+			{
+				"percentage": 80,
+				"switch": true
+			},
+			"Commercial":
+			{
+				"percentage": 15,
+				"switch": true
+			},
+			"CBD":
+			{
+				"percentage": 0,
+				"switch": false
+			}
+		}
+	},
+	{
+		"Name": "Building_commercial_L3_A",
+		"Asset": "/Script/Engine.StaticMesh'/Game/StaticMesh/Building_commercial_L3_A.Building_commercial_L3_A'",
+		"Area":
+		{
+			"Zyzh_Res": false,
+			"Zyzh_Commercial": true,
+			"Zyzh_CBD": false
+		},
+		"BuildingType":
+		{
+			"Res": false,
+			"CBD": false,
+			"Commercial": true
+		},
+		"BoundingSize":
+		{
+			"X": 2971.6823730000001,
+			"Y": 3766.8168949999999,
+			"Z": 5647.2280270000001
+		},
+		"ExtendSize":
+		{
+			"X": 0,
+			"Y": 0,
+			"Z": 0
+		},
+		"ExrendDir":
+		{
+			"Front": false,
+			"Back": false,
+			"Left": false,
+			"Right": false
+		},
+		"Zyzh":
+		{
+			"Res":
+			{
+				"percentage": 80,
+				"switch": true
+			},
+			"Commercial":
+			{
+				"percentage": 5,
+				"switch": true
+			},
+			"CBD":
+			{
+				"percentage": 0,
+				"switch": false
+			}
+		}
+	},
+	{
+		"Name": "Building_commercial_L3_B",
+		"Asset": "/Script/Engine.StaticMesh'/Game/StaticMesh/Building_commercial_L3_B.Building_commercial_L3_B'",
+		"Area":
+		{
+			"Zyzh_Res": false,
+			"Zyzh_Commercial": true,
+			"Zyzh_CBD": false
+		},
+		"BuildingType":
+		{
+			"Res": false,
+			"CBD": false,
+			"Commercial": true
+		},
+		"BoundingSize":
+		{
+			"X": 3695.5915530000002,
+			"Y": 2329.3637699999999,
+			"Z": 5106.0166019999997
+		},
+		"ExtendSize":
+		{
+			"X": 0,
+			"Y": 0,
+			"Z": 0
+		},
+		"ExrendDir":
+		{
+			"Front": false,
+			"Back": false,
+			"Left": false,
+			"Right": false
+		},
+		"Zyzh":
+		{
+			"Res":
+			{
+				"percentage": 80,
+				"switch": true
+			},
+			"Commercial":
+			{
+				"percentage": 5,
+				"switch": true
+			},
+			"CBD":
+			{
+				"percentage": 0,
+				"switch": false
+			}
+		}
+	},
+	{
+		"Name": "BuildingA",
+		"Asset": "/Script/Engine.StaticMesh'/Game/StaticMesh/BuildingA.BuildingA'",
+		"Area":
+		{
+			"Zyzh_Res": true,
+			"Zyzh_Commercial": false,
+			"Zyzh_CBD": false
+		},
+		"BuildingType":
+		{
+			"Res": true,
+			"CBD": false,
+			"Commercial": false
+		},
+		"BoundingSize":
+		{
+			"X": 805.98864700000001,
+			"Y": 760.32739300000003,
+			"Z": 830.00073199999997
+		},
+		"ExtendSize":
+		{
+			"X": 0,
+			"Y": 0,
+			"Z": 0
+		},
+		"ExrendDir":
+		{
+			"Front": false,
+			"Back": false,
+			"Left": false,
+			"Right": false
+		},
+		"Zyzh":
+		{
+			"Res":
+			{
+				"percentage": 80,
+				"switch": true
+			},
+			"Commercial":
+			{
+				"percentage": 0,
+				"switch": false
+			},
+			"CBD":
+			{
+				"percentage": 0,
+				"switch": false
+			}
+		}
+	},
+	{
+		"Name": "BuildingB",
+		"Asset": "/Script/Engine.StaticMesh'/Game/StaticMesh/BuildingB.BuildingB'",
+		"Area":
+		{
+			"Zyzh_Res": true,
+			"Zyzh_Commercial": false,
+			"Zyzh_CBD": false
+		},
+		"BuildingType":
+		{
+			"Res": true,
+			"CBD": false,
+			"Commercial": false
+		},
+		"BoundingSize":
+		{
+			"X": 938.151794,
+			"Y": 822.38140899999996,
+			"Z": 850.11425799999995
+		},
+		"ExtendSize":
+		{
+			"X": 0,
+			"Y": 0,
+			"Z": 0
+		},
+		"ExrendDir":
+		{
+			"Front": false,
+			"Back": false,
+			"Left": false,
+			"Right": false
+		},
+		"Zyzh":
+		{
+			"Res":
+			{
+				"percentage": 80,
+				"switch": true
+			},
+			"Commercial":
+			{
+				"percentage": 0,
+				"switch": false
+			},
+			"CBD":
+			{
+				"percentage": 0,
+				"switch": false
+			}
+		}
+	},
+	{
+		"Name": "BuildingC",
+		"Asset": "/Script/Engine.StaticMesh'/Game/StaticMesh/BuildingC.BuildingC'",
+		"Area":
+		{
+			"Zyzh_Res": true,
+			"Zyzh_Commercial": false,
+			"Zyzh_CBD": false
+		},
+		"BuildingType":
+		{
+			"Res": true,
+			"CBD": false,
+			"Commercial": false
+		},
+		"BoundingSize":
+		{
+			"X": 1060.563721,
+			"Y": 760.46991000000003,
+			"Z": 830.000854
+		},
+		"ExtendSize":
+		{
+			"X": 0,
+			"Y": 0,
+			"Z": 0
+		},
+		"ExrendDir":
+		{
+			"Front": false,
+			"Back": false,
+			"Left": false,
+			"Right": false
+		},
+		"Zyzh":
+		{
+			"Res":
+			{
+				"percentage": 80,
+				"switch": true
+			},
+			"Commercial":
+			{
+				"percentage": 0,
+				"switch": false
+			},
+			"CBD":
+			{
+				"percentage": 0,
+				"switch": false
+			}
+		}
+	},
+	{
+		"Name": "BuildingD",
+		"Asset": "/Script/Engine.StaticMesh'/Game/StaticMesh/BuildingD.BuildingD'",
+		"Area":
+		{
+			"Zyzh_Res": true,
+			"Zyzh_Commercial": false,
+			"Zyzh_CBD": false
+		},
+		"BuildingType":
+		{
+			"Res": true,
+			"CBD": false,
+			"Commercial": false
+		},
+		"BoundingSize":
+		{
+			"X": 800.00018299999999,
+			"Y": 764.74926800000003,
+			"Z": 744.66491699999995
+		},
+		"ExtendSize":
+		{
+			"X": 0,
+			"Y": 0,
+			"Z": 0
+		},
+		"ExrendDir":
+		{
+			"Front": false,
+			"Back": false,
+			"Left": false,
+			"Right": false
+		},
+		"Zyzh":
+		{
+			"Res":
+			{
+				"percentage": 80,
+				"switch": true
+			},
+			"Commercial":
+			{
+				"percentage": 0,
+				"switch": false
+			},
+			"CBD":
+			{
+				"percentage": 0,
+				"switch": false
+			}
+		}
+	},
+	{
+		"Name": "BuildingE",
+		"Asset": "/Script/Engine.StaticMesh'/Game/StaticMesh/BuildingE.BuildingE'",
+		"Area":
+		{
+			"Zyzh_Res": true,
+			"Zyzh_Commercial": false,
+			"Zyzh_CBD": false
+		},
+		"BuildingType":
+		{
+			"Res": true,
+			"CBD": false,
+			"Commercial": false
+		},
+		"BoundingSize":
+		{
+			"X": 706.79156499999999,
+			"Y": 812.55529799999999,
+			"Z": 952.33166500000004
+		},
+		"ExtendSize":
+		{
+			"X": 0,
+			"Y": 0,
+			"Z": 0
+		},
+		"ExrendDir":
+		{
+			"Front": false,
+			"Back": false,
+			"Left": false,
+			"Right": false
+		},
+		"Zyzh":
+		{
+			"Res":
+			{
+				"percentage": 80,
+				"switch": true
+			},
+			"Commercial":
+			{
+				"percentage": 0,
+				"switch": false
+			},
+			"CBD":
+			{
+				"percentage": 0,
+				"switch": false
+			}
+		}
+	},
+	{
+		"Name": "BuildingF",
+		"Asset": "/Script/Engine.StaticMesh'/Game/StaticMesh/BuildingF.BuildingF'",
+		"Area":
+		{
+			"Zyzh_Res": true,
+			"Zyzh_Commercial": false,
+			"Zyzh_CBD": false
+		},
+		"BuildingType":
+		{
+			"Res": true,
+			"CBD": false,
+			"Commercial": false
+		},
+		"BoundingSize":
+		{
+			"X": 1369.969482,
+			"Y": 1003.517273,
+			"Z": 830.00067100000001
+		},
+		"ExtendSize":
+		{
+			"X": 0,
+			"Y": 0,
+			"Z": 0
+		},
+		"ExrendDir":
+		{
+			"Front": false,
+			"Back": false,
+			"Left": false,
+			"Right": false
+		},
+		"Zyzh":
+		{
+			"Res":
+			{
+				"percentage": 80,
+				"switch": true
+			},
+			"Commercial":
+			{
+				"percentage": 0,
+				"switch": false
+			},
+			"CBD":
+			{
+				"percentage": 0,
+				"switch": false
+			}
+		}
+	},
+	{
+		"Name": "BuildingG",
+		"Asset": "/Script/Engine.StaticMesh'/Game/StaticMesh/BuildingG.BuildingG'",
+		"Area":
+		{
+			"Zyzh_Res": true,
+			"Zyzh_Commercial": false,
+			"Zyzh_CBD": false
+		},
+		"BuildingType":
+		{
+			"Res": true,
+			"CBD": false,
+			"Commercial": false
+		},
+		"BoundingSize":
+		{
+			"X": 784.68261700000005,
+			"Y": 1099.0023189999999,
+			"Z": 1461.603394
+		},
+		"ExtendSize":
+		{
+			"X": 0,
+			"Y": 0,
+			"Z": 0
+		},
+		"ExrendDir":
+		{
+			"Front": false,
+			"Back": false,
+			"Left": false,
+			"Right": false
+		},
+		"Zyzh":
+		{
+			"Res":
+			{
+				"percentage": 15,
+				"switch": true
+			},
+			"Commercial":
+			{
+				"percentage": 0,
+				"switch": false
+			},
+			"CBD":
+			{
+				"percentage": 0,
+				"switch": false
+			}
+		}
+	},
+	{
+		"Name": "BuildingH",
+		"Asset": "/Script/Engine.StaticMesh'/Game/StaticMesh/BuildingH.BuildingH'",
+		"Area":
+		{
+			"Zyzh_Res": true,
+			"Zyzh_Commercial": false,
+			"Zyzh_CBD": false
+		},
+		"BuildingType":
+		{
+			"Res": true,
+			"CBD": false,
+			"Commercial": false
+		},
+		"BoundingSize":
+		{
+			"X": 1674.385376,
+			"Y": 1518.2791749999999,
+			"Z": 1700.851807
+		},
+		"ExtendSize":
+		{
+			"X": 0,
+			"Y": 0,
+			"Z": 0
+		},
+		"ExrendDir":
+		{
+			"Front": false,
+			"Back": false,
+			"Left": false,
+			"Right": false
+		},
+		"Zyzh":
+		{
+			"Res":
+			{
+				"percentage": 15,
+				"switch": true
+			},
+			"Commercial":
+			{
+				"percentage": 0,
+				"switch": false
+			},
+			"CBD":
+			{
+				"percentage": 0,
+				"switch": false
+			}
+		}
+	},
+	{
+		"Name": "BuildingI",
+		"Asset": "/Script/Engine.StaticMesh'/Game/StaticMesh/BuildingI.BuildingI'",
+		"Area":
+		{
+			"Zyzh_Res": true,
+			"Zyzh_Commercial": false,
+			"Zyzh_CBD": false
+		},
+		"BuildingType":
+		{
+			"Res": true,
+			"CBD": false,
+			"Commercial": false
+		},
+		"BoundingSize":
+		{
+			"X": 1237.8282469999999,
+			"Y": 1708.946289,
+			"Z": 1841.7539059999999
+		},
+		"ExtendSize":
+		{
+			"X": 0,
+			"Y": 0,
+			"Z": 0
+		},
+		"ExrendDir":
+		{
+			"Front": false,
+			"Back": false,
+			"Left": false,
+			"Right": false
+		},
+		"Zyzh":
+		{
+			"Res":
+			{
+				"percentage": 15,
+				"switch": true
+			},
+			"Commercial":
+			{
+				"percentage": 0,
+				"switch": false
+			},
+			"CBD":
+			{
+				"percentage": 0,
+				"switch": false
+			}
+		}
+	},
+	{
+		"Name": "BuildingJ",
+		"Asset": "/Script/Engine.StaticMesh'/Game/StaticMesh/BuildingJ.BuildingJ'",
+		"Area":
+		{
+			"Zyzh_Res": true,
+			"Zyzh_Commercial": false,
+			"Zyzh_CBD": false
+		},
+		"BuildingType":
+		{
+			"Res": true,
+			"CBD": false,
+			"Commercial": false
+		},
+		"BoundingSize":
+		{
+			"X": 1332.5261230000001,
+			"Y": 1186.2847899999999,
+			"Z": 1650.5708010000001
+		},
+		"ExtendSize":
+		{
+			"X": 0,
+			"Y": 0,
+			"Z": 0
+		},
+		"ExrendDir":
+		{
+			"Front": false,
+			"Back": false,
+			"Left": false,
+			"Right": false
+		},
+		"Zyzh":
+		{
+			"Res":
+			{
+				"percentage": 15,
+				"switch": true
+			},
+			"Commercial":
+			{
+				"percentage": 0,
+				"switch": false
+			},
+			"CBD":
+			{
+				"percentage": 0,
+				"switch": false
+			}
+		}
+	},
+	{
+		"Name": "BuildingK",
+		"Asset": "/Script/Engine.StaticMesh'/Game/StaticMesh/BuildingK.BuildingK'",
+		"Area":
+		{
+			"Zyzh_Res": true,
+			"Zyzh_Commercial": false,
+			"Zyzh_CBD": false
+		},
+		"BuildingType":
+		{
+			"Res": true,
+			"CBD": false,
+			"Commercial": false
+		},
+		"BoundingSize":
+		{
+			"X": 998.09136999999998,
+			"Y": 826.67138699999998,
+			"Z": 1350.660034
+		},
+		"ExtendSize":
+		{
+			"X": 0,
+			"Y": 0,
+			"Z": 0
+		},
+		"ExrendDir":
+		{
+			"Front": false,
+			"Back": false,
+			"Left": false,
+			"Right": false
+		},
+		"Zyzh":
+		{
+			"Res":
+			{
+				"percentage": 15,
+				"switch": true
+			},
+			"Commercial":
+			{
+				"percentage": 0,
+				"switch": false
+			},
+			"CBD":
+			{
+				"percentage": 0,
+				"switch": false
+			}
+		}
+	},
+	{
+		"Name": "BuildingL",
+		"Asset": "/Script/Engine.StaticMesh'/Game/StaticMesh/BuildingL.BuildingL'",
+		"Area":
+		{
+			"Zyzh_Res": true,
+			"Zyzh_Commercial": false,
+			"Zyzh_CBD": false
+		},
+		"BuildingType":
+		{
+			"Res": true,
+			"CBD": false,
+			"Commercial": false
+		},
+		"BoundingSize":
+		{
+			"X": 1360.2763669999999,
+			"Y": 1538.6152340000001,
+			"Z": 2450.570068
+		},
+		"ExtendSize":
+		{
+			"X": 0,
+			"Y": 0,
+			"Z": 0
+		},
+		"ExrendDir":
+		{
+			"Front": false,
+			"Back": false,
+			"Left": false,
+			"Right": false
+		},
+		"Zyzh":
+		{
+			"Res":
+			{
+				"percentage": 5,
+				"switch": true
+			},
+			"Commercial":
+			{
+				"percentage": 80,
+				"switch": true
+			},
+			"CBD":
+			{
+				"percentage": 0,
+				"switch": false
+			}
+		}
+	}
+]

@@ -2,7 +2,7 @@
 # Author:jonathon woo
 # email:live.wujianxuan@gmail.com
 # version:1.0.0
-import hou
+# import hou
 import os, sys
 
 print(os.curdir)
@@ -10,9 +10,9 @@ filepath = __file__
 targetPath = os.path.dirname(filepath)
 sys.path.append(targetPath)
 
-print("Running!!!!!!!")
-import init_tool
-print("Hello PipeLine")
+# print("Running!!!!!!!")
+# import init_tool
+# print("Hello PipeLine")
 
 
 
@@ -27,7 +27,7 @@ class win(QtWidgets.QWidget):
         QtWidgets.QWidget.__init__(self)
 
         loader = QtUiTools.QUiLoader()
-        self.ui = loader.load(os.path.join(current_path, "ui/win.ui"))
+        self.ui = loader.load(os.path.join(current_path, "ui/Screen01.ui.ui"))
 
         main_layout = QtWidgets.QHBoxLayout()
         main_layout.addWidget(self.ui)
@@ -36,7 +36,9 @@ class win(QtWidgets.QWidget):
 
 def run():
     app = win()
-    app.setParent(hou.qt.floatingPanelWindow(None), QtCore.Qt.Window)
+    app.setWindowTitle("PipeLine")
+    sys.__stdout__.write("PipeLine Panel Running")
+    # app.setParent(hou.qt.floatingPanelWindow(None), QtCore.Qt.Window)
     app.show()
 
 run()

@@ -6,6 +6,8 @@
 import hrpyc
 import hou
 import os
+import sys
+
 connection,hou = hrpyc.import_remote_module()
 ui = connection.modules.hou.ui
 

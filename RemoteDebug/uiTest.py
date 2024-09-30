@@ -4,6 +4,7 @@
 # version:1.0.0
 import hrpyc
 import toolutils
+import sys
 
 connection,hou = hrpyc.import_remote_module()
 ui = connection.modules.hou.ui

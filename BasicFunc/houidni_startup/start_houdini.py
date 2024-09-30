@@ -21,12 +21,25 @@ UserDIR = current_env["HOUDINI_USER_PREF_DIR"]
 UserDIR ="{}{}&".format(UserDIR[:-1],HOUDINI_USER_PREF_DIR)
 current_env["HOUDINI_USER_PREF_DIR"] = UserDIR
 
+#get info by query the reg info
+houdini_info = os.popen('''reg query "HKLM\Software\Side Effects Software\Houdini"''')
+str_info = houdini_info.read()
+versionlist = str_info.splitlines()
+versionlist = [info for info in versionlist if "REG_SZ" in info and "LicenseServer" not in info]
+
+filter_versionList = {}
+for version in versionlist:
+    ver = version.split("REG_SZ")
+    ver = [ info.strip() for info in ver]
+    filter_versionList[ver[0]] = ver[1]
+
+print(filter_versionList)
+
 #get latest houdini
 pwd = os.path.dirname(os.path.abspath(__file__))
-houdini_install_dir = r"C:\Program Files\Side Effects Software"
-max_Version = max([x for x in os.listdir(houdini_install_dir) if "Houdini 1" in x or "Houdini 2" in x])
+max_Version = max(filter_versionList.keys())
+houdini_install_dir = filter_versionList[max_Version]
 
-
-houdini_exe = os.path.normpath(os.path.join(houdini_install_dir,max_Version,"bin","houdini.exe"))
+houdini_exe = os.path.normpath(os.path.join(houdini_install_dir,"bin","houdini.exe"))
 print(houdini_exe)
-subprocess.Popen(houdini_exe)
+#subprocess.Popen(houdini_exe)

@@ -8,7 +8,6 @@ print("Start Sea Cal Step 1")
 #import hda
 
 #create file
-
 #create node
 ObjNode = hou.node("/obj")
 geoNode = ObjNode.createNode("geo","Geo")

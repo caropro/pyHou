@@ -1,6 +1,6 @@
 # coding = utf-8
 import hou
-from PySide2 import QtWidgets, QtCore, QtGui, QtUiTools
+from PySide2 import QtWidgets, QtCore, QtUiTools
 # from hutil.Qt import QtWidgets,QtCore,QtGui,QtUiTools
 import os
 import sys

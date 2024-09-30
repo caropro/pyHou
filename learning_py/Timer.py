@@ -3,9 +3,9 @@ import time
 itertimes = 1000
 
 def timer(func,*args,**kwargs):
-    start_time = time.clock()
+    start_time = time.ctime()
     func(*args,**kwargs)
-    timecosume = time.clock() - start_time
+    timecosume = time.ctime() - start_time
     return timecosume
 
 def bestRecord(func, *args, ** kwargs):

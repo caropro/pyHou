@@ -8,8 +8,8 @@ import shutil
 import time
 import json
 
-otl_root = r"C:\Users\Administrator\Documents\houdini17.0\otls"
-version_root = r"C:\Users\Administrator\Documents\houdini17.0\otls\versionRecord"
+otl_root = r"C:\Users\Administrator\Documents\houdini20.0\otls"
+version_root = r"C:\Users\Administrator\Documents\houdini20.0\otls\versionRecord"
 file_dic = {}
 
 
