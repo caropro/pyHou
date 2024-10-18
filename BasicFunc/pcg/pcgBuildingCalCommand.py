@@ -74,8 +74,6 @@ pcgbuildingcalflow.parm("hdap_Section_Asset_2").set(OtherFloorS)
 pcgbuildingcalflow.parm("hdap_ExportDir").set(ExportPath)
 pcgbuildingcalflow.parm("hdap_FileName").set(f"{ExportName}_`@pdg_index`")
 
-
-
 #unlock node
 pcgbuildingcalflow.allowEditingOfContents()
 
