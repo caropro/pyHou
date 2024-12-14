@@ -1,13 +1,7 @@
-# coding=utf-8
-# Author:jonathon woo
-# email:live.wujianxuan@gmail.com
-# version:1.0.0
-
 from collections import Counter
 from itertools import chain
 import numpy as np
 from builtins import range
-import hou
 
 # Geo I/O
 node = hou.pwd()
@@ -59,7 +53,6 @@ UserConstraintAttributes = []
 
 def ReadInputAttributes(points):
     AttributeList = []
-
     for point in points:
         AttributeList.append(point.attribValue("name"))
     return AttributeList
