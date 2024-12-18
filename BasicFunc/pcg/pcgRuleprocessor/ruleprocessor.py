@@ -2,13 +2,21 @@
 # Author:jonathon woo
 # email:live.wujianxuan@gmail.com
 # version:1.0.0
+import random
+from itertools import combinations
+
 import numpy as np
 import hou
 import logging
 import copy
+
+from past.builtins import reduce
 from pcgRuleprocessor.pcgFunctions import *
+import importlib
 import json,os
 from random import sample
+
+from pycparser.c_ast import Default
 
 #set static seed ensure the same result
 np.random.seed(0)
@@ -46,16 +54,29 @@ if geo.findGlobalAttrib("Alert"):
 else:
     Alert = 0
 
+# get roof Mark and avoid section grammar or corner grammar
+if geo.findGlobalAttrib("RoofMark"):
+    RoofMark = geo.attribValue("RoofMark")
+else:
+    RoofMark = 0
+
+
 # Read Rule Config or read from detail attr
 with open(rulePath, "r") as datafile:
     datastring = datafile.read()
     datapack = json.loads(datastring)
+
+#Read Data From Detail Attr
+datastring = geo.attribValue("Rule")
+datapack = json.loads(datastring)
+
 
 #get rule data for current floor
 currentprim = geo.prims()[0]
 currentFloor = currentprim.attribValue("floor")+1
 currentSections = list(geo.attribValue("SectionList"))
 currentArea = currentprim.attribValue("area")
+geo_GrammarSelection = geo.attribValue("GrammarSelection")
 
 # get current rules if not exist use default rules
 CurrentRules = datapack.get("Level").get(str(currentFloor))
@@ -89,9 +110,6 @@ else:
     UpperGeo = None
     UpperOneSide = []
 
-# Corner index,pos,Dir,asset,size
-CornerData = {}
-
 # Global Section Asset
 SectionAssetsNode = node.inputs()[2]
 SectionAssetsGeo = SectionAssetsNode.geometry()
@@ -104,7 +122,7 @@ def CalPoints(CurrentRules):
     Cal Section Type Second
     :return:
     """
-    global hitResult,Overlap, last_distance, section_seed,Door_SameSide,Door_EdgeLimit, TmpCornerIList, TmpCornerList
+    global hitResult,Overlap, last_distance, section_seed,Door_SameSide,Door_EdgeLimit, TmpCornerIList, TmpCornerList , currentSections
     Overlap = False
     CornerRecordList = {}
     pts = currentprim.points()
@@ -131,12 +149,13 @@ def CalPoints(CurrentRules):
     last_distance_list = []
 
     # get Corner data list BaseData
-    OrgAssetData, CornerSortList = CornerAssetData(currentSections)
+    OrgAssetData, CornerSortList = CornerAssetData(currentSections,node = node)
     OrgCornerList = CornerSortList["Corner"]
     OrgCornerIList = CornerSortList["CornerI"]
     StyleLimit = {}
     CornerLimit = []
-
+    CornerTypeList = []
+    DefaultList = []
 
     CurrentLevelGrammar = CurrentRules.get("Grammar",{})
     #Create Corner Style Limit Dict
@@ -144,58 +163,80 @@ def CalPoints(CurrentRules):
         StyleLimit = copy.deepcopy(CurrentRules.get("StyleLimit"))
         CornerLimit = CurrentRules.get("Grammar",{}).get("Corner",{}).get("NCT",[])
 
-
-    #Init Grammar Data
-    SectionGrammar_dict = CurrentLevelGrammar.get("Section",{})
+    #Init Grammar Data get Corner Grammar List
+    SectionGrammar_List = CurrentLevelGrammar.get("Section",{})
     CornerGrammarSet_dict = CurrentLevelGrammar.get("Corner",{}).get("GrammarCornerSet",{})
-    CornerGrammarAssetList = []
+    # print(f"CurrentLevelGrammar:************************{CurrentLevelGrammar}")
+    SetData = CurrentLevelGrammar.get("Set",{})
     CornerGrammarMark = False
     CornerGrammarUnitSize = False
-    # Get Corner Grammar if exist change current pts(AssetName,cornerWidth)
-    if len(CornerGrammarSet_dict) > 0:
-        # rand select one corner grammar
-        CornerGrammarSet_list = list(CornerGrammarSet_dict.keys())
-        CornerGrammar = random.choice(CornerGrammarSet_list)
-        CornerTypeList = CornerGrammarSet_dict.get(CornerGrammar, {}).get("StyleList", [])
-        if CornerTypeList:
-            CornerGrammarMark = True
-            CornerGrammarUnitSize = CornerGrammarSet_dict.get(CornerGrammar, {}).get("useUnitSize", False)
+    CornerGrammarMaxSize = False
 
+    # Get Corner Grammar if exist change current pts(AssetName,cornerWidth)
+    #if have corner Grammar
+    if geo_GrammarSelection and RoofMark==0:
+        CornerGrammarMark = True
+        CornerGrammarUnitSize = CornerGrammarSet_dict.get(geo_GrammarSelection, {}).get("useUnitSize", False)
+        CornerGrammarMaxSize = CornerGrammarSet_dict.get(geo_GrammarSelection, {}).get("useMaxSize", False)
+        CornerTypeList = CornerGrammarSet_dict.get(geo_GrammarSelection, {}).get("StyleList", [])
+        DefaultList = CornerGrammarSet_dict.get(geo_GrammarSelection, {}).get("DefaultList", [])
+
+    # print(f"CornerTypeList:{CornerTypeList}-----------------")
     Stylelist = []
     edgeCount = 0
     CornerLimitMark = False
     for pt in pts:
-        #get seed
+        # get seed
         seed = pt.attribValue("seed")
         section_seed = pt.attribValue("section_seed")
 
+        #init var
+        AssetData = OrgAssetData
+        CornerList = OrgCornerList
+        CornerIList = OrgCornerIList
+
         #Check if it has SR need,init value first
         pt_SR = None
-        if not geo.findPointAttrib("SR"):
-            #use same data
-            AssetData = OrgAssetData
-            CornerList = OrgCornerList
-            CornerIList = OrgCornerIList
-            pass
-        else:
+        if geo.findPointAttrib("SR"):
             #use SR data filter
             pt_SR = pt.attribValue("SR")
-            AssetData, CornerSortList = CornerAssetData(currentSections,pt_SR)
-            CornerList = CornerSortList["Corner"]
-            CornerIList = CornerSortList["CornerI"]
+            if pt_SR!="":
+                AssetData, CornerSortList = CornerAssetData(currentSections,pt_SR,node=node)
+                CornerList = CornerSortList["Corner"]
+                CornerIList = CornerSortList["CornerI"]
+                # print(f"CornerIList:{CornerIList}")
+            #     CornerList or not CornerIList or not
+            if not AssetData:
+                # if current selection does not have the corner data,then reset the SR
+                # print("No CornerI Data")
+                CornerList = OrgCornerList
+                CornerIList = OrgCornerIList
+                AssetData = OrgAssetData
+                pt_SR = ""
 
-        if CornerGrammarMark:
+
+        if CornerGrammarMark and RoofMark == 0:
+            #use Corner Grammar Data
+            # print(f"Use Corner Grammar Data:{CornerGrammar}")
+            AssetData, CornerSortList = CornerAssetData(CornerTypeList, pt_SR,node=node)
             #ReFilter the Asset Data Ensure split the asset name and get the style can be found
-        # in CornerTypeList
-            print(f"CornerGrammarUnitSize:{CornerGrammarUnitSize}")
+            #in CornerTypeList
             if CornerGrammarUnitSize:
-                AssetData = {k: v for k, v in AssetData.items() if v["style"] in CornerTypeList and v["UnitSize"]==1}
+                AssetData = {k: v for k, v in AssetData.items() if v["style"] in CornerTypeList and (v["UnitSize"]==1 or v["UnitSize"]==0)}
             else:
                 AssetData = {k: v for k, v in AssetData.items() if v["style"] in CornerTypeList}
+
+            if CornerGrammarMaxSize:
+                AssetData = {k: v for k, v in AssetData.items() if v["UnitSize"] > 1}
+
             CornerList = [v["id"] for k, v in AssetData.items() if "CornerI" not in k.split("_")[3]]
             CornerIList = [v["id"] for k, v in AssetData.items() if "CornerI" in k.split("_")[3]]
+            print(f"AssetData:····································{AssetData}")
 
-        print(f"AssetData---------{AssetData}")
+            default_AssetData,default_CornerSortList = CornerAssetData(DefaultList, pt_SR,node=node)
+            default_CornerList = [v["id"] for k, v in default_AssetData.items() if "CornerI" not in k.split("_")[3]]
+            default_CornerIList = [v["id"] for k, v in default_AssetData.items() if "CornerI" in k.split("_")[3]]
+
         #current point number(used to be list index)
         index = pt.number()
         lastindex = index - 1
@@ -224,7 +265,6 @@ def CalPoints(CurrentRules):
         #update Corner Type
         Cd, CornerType, N = NormalCal(LastDir, NextDir)
 
-
         # Door Limit
         DoorAssetList = [v["id"] for k, v in AssetData.items() if k.split("_")[1] == "Door"]
         NoDoorCornerList = [id for id in CornerList if id not in DoorAssetList]
@@ -242,6 +282,12 @@ def CalPoints(CurrentRules):
                 UnitNoDoorCornerIList = [v["id"] for k, v in AssetData.items() if
                                          v["id"] in NoDoorCornerIList and v["UnitSize"] == 1 and v["style"]==lastStyle]
 
+
+        #use same corner type as lower floor if it is possible
+        if Alert and pt.attribValue("cornertype") >= 0 and (index==0 or index==(len_count-1)):
+            N = pt.attribValue("N")
+            CornerType = pt.attribValue("CornerType")
+
         #Corner Type Filter
         if CornerType < 4 and CornerType>=0:
             if C_DoorCount == DoorCount or minDistance < Door_DistLimit:
@@ -254,13 +300,24 @@ def CalPoints(CurrentRules):
             else:
                 cornertype = RandFromList(seed, CornerIList)
 
-        if Alert and pt.attribValue("cornertype") >= 0 and (index==0 or index==(len_count-1)):
-            cornertype = pt.attribValue("cornertype")
-            N = pt.attribValue("N")
-            CornerType = pt.attribValue("CornerType")
+        assetname = [k for k, v in AssetData.items() if v["id"] == cornertype]
+        print(f"assetname------------:{assetname}")
+        if not assetname:
+            print("No Asset Found------------------Use Default")
+            if CornerGrammarMark:
+                #use default Corner
+                if CornerGrammarUnitSize:
+                    cornertype = RandFromList(seed, default_CornerList)
+                else:
+                    cornertype = RandFromList(seed, default_CornerIList)
+                assetname = [k for k, v in default_AssetData.items() if v["id"] == cornertype]
+                AssetData = default_AssetData
+            else:
+                print("No Asset Found")
+                return
 
 
-        assetname = [k for k, v in AssetData.items() if v["id"] == cornertype][0]
+        assetname = assetname[0]
         assetsize = [v["UnitSize"] for k, v in AssetData.items() if v["id"] == cornertype][0]
         assettype = assetname.split("_")[1]
         assetStyle = assetname.split("_")[2]
@@ -277,6 +334,8 @@ def CalPoints(CurrentRules):
             assettype = assetname.split("_")[1]
             assetStyle = assetname.split("_")[2]
 
+        print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+        print(f"assetname------------:{assetname}")
         # Door Limit
         if C_DoorCount < DoorCount and assettype == "Door":
             passValue = True
@@ -303,8 +362,9 @@ def CalPoints(CurrentRules):
         else:
             #Style Limit
             StyleLimitList = [k for k, v in StyleLimit.items()]
-            if assetStyle in StyleLimitList:
 
+            print(f"xxxxxxxxx: {StyleLimitList}")
+            if assetStyle in StyleLimitList and not CornerGrammarMark:
                 Vertical = StyleLimit.get(assetStyle,{}).get("Vertical",False)
                 Breakpoint = StyleLimit.get(assetStyle,{}).get("BreakPoint",False)
                 Depth_limit = StyleLimit.get(assetStyle,{}).get("Depth_limit",0)
@@ -384,6 +444,7 @@ def CalPoints(CurrentRules):
     StyleLimit = CurrentRules.get("StyleLimit")
     LimitData = {"DoorRestCount": DoorRestCount , "StyleLimit":StyleLimit , "SideLimit":[]}
 
+
     for pt in pts:
         edgeCount+=1
         # if edgeCount!=6:
@@ -399,47 +460,107 @@ def CalPoints(CurrentRules):
         StartAsset = CornerRecordList[str(index)]["assetname"]
         NextAsset = CornerRecordList[str(nextindex)]["assetname"]
 
-        StartType = StartAsset.split("_")[2]
-        NextType = NextAsset.split("_")[2]
+        # StartType = StartAsset.split("_")[2]
+        # NextType = NextAsset.split("_")[2]
 
-
-
-        return
-        if False:
-            pass
+        if CornerGrammarMark and RoofMark == 0:
+            #send - CornerGrammar CornerGrammarUnitSize to CalGrammar as parameter update SectionGrammar_dict
+            # print(f"Before*********************SectionGrammar_List:{SectionGrammar_List}")
+            Current_SectionGrammar_List = [value for key,value in SectionGrammar_List.items() if key == geo_GrammarSelection]
+            # print(f"Current_SectionGrammar_List:{Current_SectionGrammar_List}")
+            CalGrammar(Current_SectionGrammar_List,SetData,StartPos,StartAsset,NextPos,NextAsset,index,EdgeLength)
         else:
             #Cal per Edge
             LimitData,DoorPosList = CalEdge(StartPos, StartAsset, NextPos, NextAsset, index, LimitData,last_distance_list[pts.index(pt)],DoorPosList,section_seed)
 
-def CalGrammar(GrammerSelection,StartPos,StartAsset,NextPos,NextAsset,index,EdgeLength):
+def CalGrammar(SectionGrammar_List,SetData,StartPos,StartAsset,NextPos,NextAsset,index,EdgeLength):
     CurrentSize = int(StartAsset.split("_")[-1][0])
     NextSize = int(NextAsset.split("_")[-1][0])
     CurrentDir = (NextPos - StartPos).normalized()
     StartPos = StartPos + CurrentDir * CurrentSize
     TypeDict = {"W":"Wall","D":"Door","Ww":"Window","R":"Roof","F":"Floor","C":"Ceiling"}
-    print(f"EdgeLength {EdgeLength}")
+    # print(f"EdgeLength {EdgeLength}")
     #init variable
     RestLength = EdgeLength - CurrentSize - NextSize
 
-    #get Grammar Data
-    GrammarData = list(GrammerSelection.values())[0]
+    #Rand Select Grammar
+    GrammerSelection = random.choice(SectionGrammar_List)
+    SetList = GrammerSelection.get("Set",[])
+    RepeatMark = GrammerSelection.get("Repeat",False)
+    SizeLimit = GrammerSelection.get("SizeLimit",0)
+
+    #get GrammarSet for current Grammar
+    GrammarList = [value for key,value in SetData.items() if key in SetList]
+    # print(f"GrammarList:{GrammarList}")
+    #use input index to get the current Grammar(if repeat is true,then use length of the list to modulo the index)
+    if RepeatMark:
+        index = index % len(GrammarList)
+        GrammarData = GrammarList[index]
+    else:
+        #random select one fit the length of curren sample line
+        tempGrammarList = [grammar for grammar in GrammarList if grammar.get("minLength")<=RestLength]
+        GrammarData = random.choice(tempGrammarList) if tempGrammarList else random.choice(GrammarList)
+
     Grammar = GrammarData.get("Grammar","")
+    # print(f"Grammar:{Grammar}")
     minLength = GrammarData.get("minLength",0)
-    CornerSet = GrammarData.get("CornerSet",[])
+    maxLength = GrammarData.get("maxLength", 0)
+    CornerSet = GrammarData.get("CornerSet","")
 
-    print(f"RestLength:{RestLength}-----------------Grammar:{Grammar}")
+    # print(f"RestLength:{RestLength}-----------------Grammar:{Grammar}\n")
     GrammarAssetList = []
-
     PendingList = {}
     GramarSections = Grammar.split("|")
+    too_short = False
+    RestLengthRecord = RestLength
+    if RestLength < minLength:
+        # print("RestLength is too short")
+        too_short = True
 
     index = 0
     #normal Setting
     for GrammarSection in GramarSections:
-        # print(GrammarSection)
+        print(f"GrammarSection:^^^^^^^^^^^^^^^^^^^^^^^^{GrammarSection}")
         #special mark append to pending list
         if "*" in GrammarSection or "^" in GrammarSection:
-            PendingList[index] = GrammarSection
+            if ("!*" in GrammarSection):
+                #repeat but with priority
+                if "[" in GrammarSection:
+                    #use combination
+                    GrammarSection = GrammarSection.replace("]!*","")
+                    GrammarSection = GrammarSection.replace("[","")
+                    print(f"Core Section is {GrammarSection}")
+                    subGrammarList = GrammarSection.split("&")
+                    subLength = reduce(lambda x,y:x+y,[int(sub.split("_")[-1]) for sub in subGrammarList])
+                    repeatCount = int(RestLength/subLength)
+                    if repeatCount:
+                        RestLength -= repeatCount*subLength
+                        subAssetlist = []
+                        for sub in subGrammarList:
+                            AssetType = sub.split("_")[1][:-1]
+                            AssetStyle = sub.split("_")[0]
+                            AssetSize = int(sub.split("_")[-1])
+
+                            AssetType = TypeDict.get(AssetType, "")
+                            print(AssetType, AssetStyle, AssetSize)
+                            for prim in SectionAssets:
+                                assetname = prim.attribValue("name")
+                                Pos = prim.attribValue("Pos")
+                                Style = prim.attribValue("Style")
+                                Type = prim.attribValue("Type")
+                                UnitSize = prim.attribValue("UnitSize")
+                                print(Type, Style, UnitSize)
+                                if AssetType == Type and AssetStyle == Style and UnitSize == AssetSize:
+                                    subAssetlist.append(assetname)
+                        for i in range(repeatCount):
+                            GrammarAssetList.extend(subAssetlist)
+                            print(f"subAssetlist:{subAssetlist}")
+                            index += len(subAssetlist)
+            else:
+                #repeat
+                PendingList[index] = GrammarSection
+                index += 1
+
         else:
             AssetType = GrammarSection.split("_")[1][:-1]
             AssetStyle = GrammarSection.split("_")[0]
@@ -450,26 +571,29 @@ def CalGrammar(GrammerSelection,StartPos,StartAsset,NextPos,NextAsset,index,Edge
             #first mark the type
             AssetType = TypeDict.get(AssetType,"")
 
-            # print(f"AssetType--------------------------------{AssetType}")
-            # print(f"AssetStyle-------------------------------{AssetStyle}")
-            # print(f"AssetVar--------------------------------{AssetVar}")
-            # print(f"AssetSize-------------------------------{AssetSize}")
             for prim in SectionAssets:
                 assetname = prim.attribValue("name")
                 Pos = prim.attribValue("Pos")
                 Style = prim.attribValue("Style")
                 Type = prim.attribValue("Type")
                 UnitSize = prim.attribValue("UnitSize")
-                #print(Type,Style,Pos,UnitSize)
+                # print(Type,Style,Pos,UnitSize)
                 if AssetType == Type and AssetStyle == Style and UnitSize == int(AssetSize):
                     GrammarAssetList.append(assetname)
                     RestLength -= UnitSize
                     break
+            index += 1
 
-        index += 1
+#-------------------------------------------------------------------------------------------------------------
 
-    print(f"GrammarAssetList:{GrammarAssetList}")
-    print(f"RestLength:{RestLength}-----------------PendingList:{PendingList}")
+    if too_short:
+        #clear the list and reset index
+        RestLength = RestLengthRecord
+        GrammarAssetList = []
+        index = 0
+
+    # print(f"GrammarAssetList:{GrammarAssetList}")
+    # print(f"RestLength:{RestLength}-----------------PendingList:{PendingList}")
 
     if RestLength and PendingList:
         pendingCount = len(PendingList)
@@ -484,10 +608,15 @@ def CalGrammar(GrammerSelection,StartPos,StartAsset,NextPos,NextAsset,index,Edge
             AssetType = section.split("_")[1][:-1]
             #if the last char is special mark remove it
             AssetSize = section.split("_")[-1][:-1] if section.split("_")[-1][-1] in ["*","^"] else section.split("_")[-1]
+            AssetSize = int(AssetSize)
             AssetStyle = section.split("_")[0]
             AssetType = TypeDict.get(AssetType, "")
             # print(f"AssetType:{AssetType}-----------------AssetStyle:{AssetStyle}")
-            # print(f"RestLength:{RestLength}-----------------")
+            # print(f"AssetSize:{AssetSize}-----------------")
+            SizeMark = True if int(RestLength) % int(AssetSize) == 0 else False
+
+            UnitSizeAsset = ""
+            # print(f"last:{last}-----------------")
             count = 1
             for prim in SectionAssets:
                 assetname = prim.attribValue("name")
@@ -495,25 +624,33 @@ def CalGrammar(GrammerSelection,StartPos,StartAsset,NextPos,NextAsset,index,Edge
                 Style = prim.attribValue("Style")
                 Type = prim.attribValue("Type")
                 UnitSize = prim.attribValue("UnitSize")
-                print(Type, Style, Pos, UnitSize)
-                if AssetType == Type and AssetStyle == Style:
+                if not SizeMark and UnitSize == 1:
+                    UnitSizeAsset = assetname
+                if SizeMark and UnitSize != int(AssetSize):
+                    continue
+                # print(Type, Style, Pos, UnitSize)
+                if AssetType == Type and AssetStyle == Style and UnitSize == int(AssetSize):
                     if "*" in section:
                         #symmetry
                         count = int(RestLength/UnitSize/2)
                         if last:
-                            print("Last!!!!!!!!")
+                            # print("Last!!!!!!!!")
                             count = int(RestLength/UnitSize)
                     for i in range(count):
                         GrammarAssetList.insert(index,assetname)
                         RestLength -= UnitSize
+                    if last and RestLength:
+                        for i in range(int(RestLength)):
+                            GrammarAssetList.append(UnitSizeAsset)
+                            RestLength -= 1
                     break
             count_offset = count
 
-    print(f"RestLength:{RestLength}-----------------GrammarAssetList:{GrammarAssetList}")
+    # print(f"RestLength:{RestLength}-----------------GrammarAssetList:{GrammarAssetList}")
 
     for asset in GrammarAssetList:
         StartPos, OffsetSize = CreatePoint(asset, StartPos, CurrentDir)
-    pass
+
 
 def CalEdge(StartPos, StartAsset, NextPos, NextAsset, index, LimitData,last_distance,DoorPosList,section_seed=0):
     if debug:logging.log(logging.INFO, f"NewStart-----init variable---------------{index}")
@@ -720,7 +857,7 @@ def CalEdge(StartPos, StartAsset, NextPos, NextAsset, index, LimitData,last_dist
             #0 or 1
             HalfMark = np.random.randint(0, 2)
             if HalfMark>0 and RestDist>=3 and not CurrentSocket in ["R1","R2","R3","R4"]:
-                halfList = halfSetting(SectionAssetlist, RestDist, LimitKeyList, must_Convert)
+                halfList = halfSetting(SectionAssetlist, RestDist, LimitKeyList, must_Convert,CurrentRules)
 
             #Set Door
             if DoorMark:
@@ -900,56 +1037,6 @@ def updateSocketList(Socket, keywords, sizeLimit, ConvertKey="", AdditionalSocke
 
     return newArray
 
-def halfSetting(SectionAssetlist, RestDist, LimitKeyList, must_Convert):
-    """
-    :param Socket: current Socket
-    :param SectionAssetlist:
-    :param RestDist:
-    :param LimitKeyList:
-    :return:
-    """
-    halfList = []
-    if must_Convert:
-        # Left 1m section for Convert
-        RestDist -= 1
-    SectionAssetlist = [asset for asset in SectionAssetlist if asset.split("_")[3] in ["Left", "Right", "Center"]]
-    if not CurrentRules.get("AssetType",{}).get("Window",{}):
-        return []
-    Continuous_Limit = CurrentRules.get("AssetType").get("Window").get("Combine").get("Continuous")
-    if Continuous_Limit:
-        if RestDist > Continuous_Limit:
-            RestDist = Continuous_Limit
-    #logging.log(logging.INFO,"RestDist:{RestDist}--------------------------------------------------")
-    if not SectionAssetlist:
-        return []
-    # Rand Select Length from 2-6 window parts
-    if RestDist==2:
-        LengthSelection = 2
-    else:
-        LengthSelection = np.random.randint(2, RestDist+1)
-    LeftList = [Section for Section in SectionAssetlist if "Left" in Section]
-    RightList = [Section for Section in SectionAssetlist if "Right" in Section]
-    CenterList = [Section for Section in SectionAssetlist if "Center" in Section]
-
-    LengthSelection = min(LengthSelection,6)
-    L = LeftList[0]
-    R = RightList[0]
-    # init list with left and rigth
-    # start with left end with right
-    halfList.append(L)
-    halfList.append(R)
-    LengthSelectionForReturn = LengthSelection
-    LengthSelection -= 2
-    # add center
-    while LengthSelection > 0:
-        # rand select c from CenterList
-        C = CenterList[np.random.randint(0, len(CenterList))]
-        UnitSize = int(C.split("_")[-1][0])
-        halfList.insert(-1, C)
-        LengthSelection -= UnitSize
-
-    return halfList
-
 def CornerExtend(StartSocket,EndSocket,CornerExtendCount,toMark=False,SectionAssetlist=None):
     """
     :param StartSocket:
@@ -981,5 +1068,7 @@ def CornerExtend(StartSocket,EndSocket,CornerExtendCount,toMark=False,SectionAss
                 EndAsset = end_assets_list[0]
                 ExtendList.append(EndAsset)
     return ExtendList
+
+
 
 CalPoints(CurrentRules=CurrentRules)
